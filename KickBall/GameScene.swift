@@ -8,35 +8,72 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+
+let Mask_Edge = 0b1
+let Mask_Ball = 0b10
+let Mask_Flag = 0b100
+
+class GameScene: SKScene , SKPhysicsContactDelegate{
+    
+    var gameStart:Bool = false
+    var ball:SKSpriteNode!
+    var startGameLabel:SKLabelNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
-        self.addChild(myLabel)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsWorld.contactDelegate = self
+        self.physicsBody?.contactTestBitMask = UInt32(Mask_Edge)
+        
+        ball = childNodeWithName("ball") as SKSpriteNode
+        ball.xScale = 0.5
+        ball.yScale = 0.5
+        startGameLabel = childNodeWithName("label_1") as SKLabelNode
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
+        if gameStart {
+            var flag = SKSpriteNode(imageNamed: "flag_1")
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            flag.physicsBody = SKPhysicsBody(rectangleOfSize: flag.frame.size)
+            flag.physicsBody?.contactTestBitMask = UInt32(Mask_Flag)
+            flag.position = touches.anyObject()!.locationInNode(self)
+            flag.physicsBody?.velocity = CGVector(dx: 0, dy: 500)
+            flag.xScale = 0.6
+            flag.yScale = 0.6
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            self.addChild(flag)
+        } else {
+            gameStart = true
+            ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.size.width/2)
+            ball.physicsBody?.contactTestBitMask = UInt32(Mask_Ball)
+            startGameLabel.hidden = true
         }
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        var maskTestBitmap = contact.bodyA.contactTestBitMask | contact.bodyB.contactTestBitMask
+        if maskTestBitmap == UInt32(Mask_Flag | Mask_Edge) {
+            if contact.bodyA.contactTestBitMask == UInt32(Mask_Flag) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            
+            if contact.bodyB.contactTestBitMask == UInt32(Mask_Flag) {
+                contact.bodyB.node?.removeFromParent()
+            }
+        } else if maskTestBitmap == UInt32(Mask_Ball | Mask_Edge) {
+            var transition = SKTransition.doorsOpenHorizontalWithDuration(1.0)
+            self.view?.presentScene(GameOverScene(size: self.frame.size), transition: transition)
+            
+            
+//            self.view?.presentScene(GameOverScene(size: self.frame.size))
+        }
+    }
+    func didEndContact(contact: SKPhysicsContact) {
+        println(">>>> 2")
     }
    
     override func update(currentTime: CFTimeInterval) {

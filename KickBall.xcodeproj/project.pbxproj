@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111AFF441A3C12BB00CD4C57 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111AFF431A3C12BB00CD4C57 /* GameOverScene.swift */; };
 		11D6B0221A39E44700D69515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B0211A39E44700D69515 /* AppDelegate.swift */; };
 		11D6B0241A39E44700D69515 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 11D6B0231A39E44700D69515 /* GameScene.sks */; };
 		11D6B0261A39E44700D69515 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D6B0251A39E44700D69515 /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111AFF431A3C12BB00CD4C57 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		11D6B01C1A39E44700D69515 /* KickBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D6B0201A39E44700D69515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11D6B0211A39E44700D69515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				11D6B02C1A39E44700D69515 /* Images.xcassets */,
 				11D6B02E1A39E44700D69515 /* LaunchScreen.xib */,
 				11D6B01F1A39E44700D69515 /* Supporting Files */,
+				111AFF431A3C12BB00CD4C57 /* GameOverScene.swift */,
 			);
 			path = KickBall;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				11D6B0261A39E44700D69515 /* GameScene.swift in Sources */,
 				11D6B0281A39E44700D69515 /* GameViewController.swift in Sources */,
+				111AFF441A3C12BB00CD4C57 /* GameOverScene.swift in Sources */,
 				11D6B0221A39E44700D69515 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +419,7 @@
 				11D6B0411A39E44700D69515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11D6B0421A39E44700D69515 /* Build configuration list for PBXNativeTarget "KickBallTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				11D6B0441A39E44700D69515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

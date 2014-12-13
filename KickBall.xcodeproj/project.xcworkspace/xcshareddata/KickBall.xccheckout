@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C30E8028-CC6F-4837-B959-0C53C4A7645B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KickBall</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D37FF56F085DA1901D726906A599FB98C62B632E</key>
+		<string>https://github.com/shiweihappy/KickBall.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KickBall.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D37FF56F085DA1901D726906A599FB98C62B632E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shiweihappy/KickBall.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D37FF56F085DA1901D726906A599FB98C62B632E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D37FF56F085DA1901D726906A599FB98C62B632E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KickBall</string>
+		</dict>
+	</array>
+</dict>
+</plist>
